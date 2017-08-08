@@ -1,0 +1,14 @@
+Protein	Chain	Helix	Length	Geom	Max Bending Angle
+4hkr	A	0	16	C	7.067379
+4hkr	A	1	18	C	6.641310
+4hkr	A	2	24	C	9.461426
+4hkr	A	3	35	C	9.564404
+4hkr	A	4	10	L	6.412664
+4hkr	A	5	20	C	15.407358
+4hkr	A	6	24	L	14.655556
+4hkr	B	7	35	C	8.248128
+4hkr	B	8	24	C	9.234952
+4hkr	B	9	35	C	8.700354
+4hkr	B	10	10	C	6.188841
+4hkr	B	11	19	C	12.818441
+4hkr	B	12	21	C	12.016110

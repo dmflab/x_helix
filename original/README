@@ -1,0 +1,95 @@
+HELIX PACKING
+Copyright � 2002 University of Leeds 
+
+There are three versions of the program: 
+
+	a) c-helix (code in the file "chain_helix.c") - analyses the
+	helices that are the present in a single specified protein chain.
+
+	b) d-helix (code in "dom_helix.c") - analyses the helices that
+	reside in a specified domain of a chain.
+
+	c) a-helix (code in "all_helix.c") - takes into account all the
+	helices in a protein (i.e. multiple chain analysis).
+
+Other files required for the compilation and execution of the
+algorithm(s), are:
+
+	a) skew.h - for compilation of all programs.
+
+	b) translation.txt - for execution of all programs.
+
+	c) domlist.v2.4 - for execution of d-helix (can be obtained from
+	the CATH website: http://www.biochem.ucl.ac.uk/bsm/cath/).
+
+Input to the program is in the form of PDB and DSSP files. DSSP files are
+produced from the PDB file using the DSSP program, obtained from the DSSP
+website: http://www.cmbi.kun.nl/gv/dssp/. The algorithm is designed to
+run interactively with the input file being chosen by the user. The input
+file should contain a single PDB code at the start of each new line.
+a-helix requires just the standard four character code, c-helix requires a
+five character code which includes the PDB code plus the chain letter (the
+chain is '0' if not specified otherwise), and d-helix requires a six
+character code which is made up of the PDB code, the chain letter, and the
+domain number (also '0' if not specified otherwise). The respective
+program sequentially analyses all cases of helix packing in the designated
+region of each protein in the input file.
+
+Two example input files are:
+
+	a) cath.txt - a short test file.
+
+	b) Hreps.v2.4 - this is the latest CATH list of homologous
+	super-family representatives (H-reps), obtained from the CATH
+	website (The PDB codes in "Hreps.v2.4" are arranged into numerical
+	and alphabetical order so as to avoid the analysis of the same
+	protein twice).
+
+The output files that are created by the algorithm are as follows
+(brackets denote a difference between program versions):
+
+	a) Helices.txt - contains general information on all helices of a
+	single protein fold, such as first helix residue, last helix
+	residue, helix length, helix sequence, and helix geometry type.
+	The file also states the neighbouring and packed helix pairs,
+	including the global angle, local angle, and the distance of
+	closest approach. Also included is a full helix atomic list.
+
+	b) Axis.txt - contains the local axis details, the local origin
+	co-ordinates, the bending angles between successive axes, and the
+	maximum bending angle for all the helices listed in "helices.txt".
+
+	c) Geom.txt - contains a record of all the variables used in the
+	helix geometry assessment. This includes the root mean square
+	deviations of the best fit line and curve, the square of linear
+	correlation coefficient, plus other information regarding the
+	line/curve fitting process for each helix in "helices.txt".
+
+	d) Contact.txt - contains the residue numbers that are involved in
+	the interhelical contact for each helix pair in "helices.txt".
+
+	e) Helix_packing_pair.txt - this is an appended file, i.e. it is
+	extended along with each protein analysed, and contains all the
+	variables that define the nature of each packed helix pair. All
+	helix pairs of all the protein folds analysed are included. The
+	information contained in the file is in tab delimited format and is as
+	follows: protein fold identifier, first SSE (or helix) number,
+	second SSE (or helix) number, (helix packing class), global angle,
+	local angle, number of helix 1 contact residues, number of helix 2
+	contact residues, distance of closest approach, number of
+	interhelical covalent bonds, number of electrostatic interactions,
+	number of H-bonds, and number of van der Waals.
+
+	f) Helix_shape.txt - this is also an appended file and contains
+	information regarding every individual helix that is involved in
+	packing or not. The information contained is in a tab delimited
+	format as follows: protein fold identifier, SSE (or helix) number,
+	geometry type, and maximum bending angle.
+
+In c-helix only, the helix numbering is converted into SSE (Secondary
+Structural Element) numbering. The helix numbering designates the first
+helix as zero, the second as one, and so on. SSE numbering also starts at
+zero and not only contains helices, but also includes beta-strands and
+unstructured regions. The unstructured sections of the chain include any
+residue that does not have a secondary structure type of 'E', 'H', 'I', or
+'G'.

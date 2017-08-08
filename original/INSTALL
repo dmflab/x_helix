@@ -1,0 +1,7 @@
+Compilation is recommended using the GNU C compiler (gcc) under Linux.
+
+- To compile the programs, type 'make' from the helix directory.
+
+- To erase the executable files, type 'make erase'.
+
+- To run the programs, type './a-helix', './c-helix' or './d-helix'.
